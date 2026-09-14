@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>アイカツ！アンコール 1弾 カード所持チェックリスト(全37枚)</title>
+<title>アイカツ！アンコール 1弾 カード所持チェックリスト(全61枚)</title>
 <style>
   :root {
     --pink: #fb9fd6;
@@ -143,12 +143,12 @@
 <body>
 
 <h1>アイカツ！アンコール 1弾</h1>
-<div class="sub">カード所持チェックリスト(全37枚)</div>
+<div class="sub">カード所持チェックリスト(全61枚)</div>
 
 <div class="progress-wrap">
   <div class="progress-text">
     <span>所持数</span>
-    <span class="progress-count"><span id="ownedCount">0</span> / 37</span>
+    <span class="progress-count"><span id="ownedCount">0</span> / 61</span>
   </div>
   <div class="bar-bg"><div class="bar-fill" id="barFill"></div></div>
 </div>
@@ -163,6 +163,22 @@
 
 <script>
 const cards = [
+  { id: "E1-05", rarity: "R", name: "アイスブルーフリルキャミソール" },
+  { id: "E1-06", rarity: "R", name: "アイスブルーフリルパニエ" },
+  { id: "E1-07", rarity: "R", name: "アイスブルーシューズ" },
+  { id: "E1-08", rarity: "R", name: "ジュエルつきパープルリボン" },
+  { id: "E1-09", rarity: "R", name: "小花柄イエローワンピ" },
+  { id: "E1-10", rarity: "R", name: "ドリーミースタートップス" },
+  { id: "E1-11", rarity: "R", name: "ドリーミースタースカート" },
+  { id: "E1-12", rarity: "R", name: "ドリーミースターパンプス" },
+  { id: "E1-13", rarity: "R", name: "チャーミーリボントップス" },
+  { id: "E1-14", rarity: "R", name: "チャーミーリボンスカート" },
+  { id: "E1-15", rarity: "R", name: "チャーミーリボンサンダル" },
+  { id: "E1-16", rarity: "R", name: "チャーミーリボンアクセ" },
+  { id: "E1-17", rarity: "R", name: "クリアネスイエロートップス" },
+  { id: "E1-18", rarity: "R", name: "クリアネスイエロースカート" },
+  { id: "E1-19", rarity: "R", name: "クリアネスイエローパンプス" },
+  { id: "E1-20", rarity: "R", name: "クリアネスイエローアクセ" },
   { id: "E1-21", rarity: "N", name: "ピンクステージベスト" },
   { id: "E1-22", rarity: "N", name: "ピンクステージスカート" },
   { id: "E1-23", rarity: "N", name: "ピンクステージシューズ" },
@@ -172,6 +188,10 @@ const cards = [
   { id: "E1-27", rarity: "N", name: "ピンクブロッサムトップス" },
   { id: "E1-28", rarity: "N", name: "ピンクブロッサムスカート" },
   { id: "E1-29", rarity: "N", name: "ピンクブロッサムブーツ" },
+  { id: "E1-37", rarity: "R", name: "プリズムサイバーグラフィックワンピ" },
+  { id: "E1-38", rarity: "R", name: "ブラックモダンボレロ" },
+  { id: "E1-39", rarity: "R", name: "ブラックフューチャーエナメルショートパンツ" },
+  { id: "E1-40", rarity: "R", name: "ブラックフューチャーブーツ" },
   { id: "E1-41", rarity: "N", name: "ブルーステージブラウス" },
   { id: "E1-42", rarity: "N", name: "ブルーステージスカート" },
   { id: "E1-43", rarity: "N", name: "ブルーステージブーツ" },
@@ -183,9 +203,13 @@ const cards = [
   { id: "E1-49", rarity: "N", name: "ネイビーブロッサムブーツ" },
   { id: "E1-51", rarity: "PR", name: "レジェンダリールージュドレス" },
   { id: "E1-52", rarity: "PR", name: "レジェンダリールージュパンプス" },
-  { id: "E1-53", rarity: "SR", name: "アゲハレッドコクーンワンピ" },
-  { id: "E1-54", rarity: "SR", name: "アゲハレッドミュール" },
-  { id: "E1-55", rarity: "SR", name: "パープルジュエリーワンピ" },
+  { id: "E1-53", rarity: "R", name: "アゲハレッドコクーンワンピ" },
+  { id: "E1-54", rarity: "R", name: "アゲハレッドミュール" },
+  { id: "E1-55", rarity: "R", name: "パープルジュエリーワンピ" },
+  { id: "E1-56", rarity: "R", name: "ゴールドチェーングラディエーター" },
+  { id: "E1-57", rarity: "R", name: "アゲハロゴフリルトップス" },
+  { id: "E1-58", rarity: "R", name: "アゲハファーつきスカート" },
+  { id: "E1-59", rarity: "R", name: "ブラックシフォンカチューシャ" },
   { id: "E1-60", rarity: "N", name: "パープルステージトップス" },
   { id: "E1-61", rarity: "N", name: "パープルステージスカート" },
   { id: "E1-62", rarity: "N", name: "パープルステージニーハイパンプス" },
@@ -221,7 +245,7 @@ function render() {
       <img src="${imgUrl(card)}" alt="${key}" loading="lazy">
       <div class="card-id">${card.id}</div>
       <div class="card-name">${card.name}</div>
-      <div class="rarity">${card.rarity === "PR" ? "プロモ" : card.rarity === "SR" ? "スーパーレア" : "ノーマル"}</div>
+      <div class="rarity">${card.rarity === "PR" ? "プレミアムレア" : card.rarity === "R" ? "レア" : "ノーマル"}</div>
       <div class="checkmark">${owned ? "✓ 所持" : ""}</div>
     `;
     el.addEventListener("click", () => toggle(key));
